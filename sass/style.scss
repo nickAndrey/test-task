@@ -1,0 +1,97 @@
+@import "mixins";
+@import "variables";
+
+body{
+    font-family: 'Work Sans', sans-serif;
+}
+
+.wrapper{
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    .sidebar{
+        max-width: 300px;
+        width: 100%;
+        padding: 14px 20px 0;
+        background: #333333;
+        color: $sidebar-primary-text;
+        display: flex;
+        flex-direction: column;
+        .sidebar-list{
+            margin-bottom: 55px;
+            @include reset_ul;
+            margin-top: 0;
+            letter-spacing: 0;
+            li{
+                .list-item-title{
+                    color: $list-title;
+                    font-size: 18px;
+                    padding: 0 0 15px;
+                    border-bottom: 1px solid;
+                    border-color: $separate-line;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .arrow{
+                        cursor: pointer;
+                        color: $list-arrows;
+                        transition: all 0.5s;
+                    }
+                    .arrow.rotated{
+                        transform: rotate(-180deg);
+                        transition: all 0.5s;
+                    }
+                }
+                @include sidebar-hidden-list-icons;
+                @include sidebar-hidden-list-text;
+            }
+        }
+    }
+    .content{
+        width: 100%;
+        position: relative;
+        .header{
+            background: #cb0000;
+            color: $white;
+            padding: 5px 71px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2{
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+            .user-data{
+                display: flex;
+                .user-photo{
+                    margin-right: 5px;
+                }
+                .user-name{
+                    font-size: 14px;
+                }
+            }
+        }
+        .content-items{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            .post-item{
+                width: 32%;
+                margin: 1% 0 0 1%;
+                font-size: 15px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                .item-subscribe{
+                    margin-top: 10px;
+                }
+            }
+            .current{
+                background: #cb0000;
+            }
+        }
+        @include popUp;
+    }
+}
